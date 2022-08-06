@@ -1,6 +1,16 @@
 import graphene
+import profiles.gql.schema
 
-class Query(graphene.ObjectType):
-    hello = graphene.String(default_value="Hi!")
+class Query(
+    profiles.gql.schema.Query,
+    graphene.ObjectType
+    ):
+    pass
 
-schema = graphene.Schema(query=Query)
+class Mutation(
+    profiles.gql.schema.Mutation,
+    graphene.ObjectType
+    ):
+    pass
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
